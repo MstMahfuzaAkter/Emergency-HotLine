@@ -1,5 +1,4 @@
 1.What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
-
 Answer:getElementById = one id, getElementsByClassName = all class, querySelector = first match, querySelectorAll = all matches.
 
 
