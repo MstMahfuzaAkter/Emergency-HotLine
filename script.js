@@ -14,7 +14,7 @@ for (let heart of hearts) {
         getElement("count-heart").innerText = count_heart;
     });
 }
-// Helper function
+
 function getElement(id) {
     return document.getElementById(id);
 }
