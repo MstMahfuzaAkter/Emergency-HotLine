@@ -23,25 +23,6 @@ function getElementClass(cls) {
     return document.getElementsByClassName(cls);
 }
 
-let copyButtons = getElementClass("copy-btn");
-
-for (let button of copyButtons) {
-    button.addEventListener("click", function(e) {
-        e.preventDefault();
-        const card = button.closest('.card'); 
-        if (!card) return;
-        const copyNumber = card.querySelector(".card-number").innerText;
-        navigator.clipboard.writeText(copyNumber)
-            .then(() => {
-                alert(`নম্বর ${copyNumber} কপি হয়েছে!`);
-                let countElement = getElement("copy-count");
-                let currentCount = Number(countElement.innerText) + 1;
-                countElement.innerText = currentCount;
-            })
-            .catch(err => console.error("Copy failed:", err));
-    });
-}
-
 
 
 getElement("product-box").addEventListener("click", function (e) {
@@ -88,4 +69,25 @@ getElement("clear-btn").
     addEventListener("click", function (e) {
         e.preventDefault();
         getElement("cart-container").innerText = " ";
+        getElement("count-heart").innerText=0;
+        getElement("coin-count").innerHTML=100;
     })
+
+let copyButtons = getElementClass("copy-btn");
+
+for (let button of copyButtons) {
+    button.addEventListener("click", function(e) {
+        e.preventDefault();
+        const card = button.closest('.card'); 
+        if (!card) return;
+        const copyNumber = card.querySelector(".card-number").innerText;
+        navigator.clipboard.writeText(copyNumber)
+            .then(() => {
+                alert(`নম্বর ${copyNumber} কপি হয়েছে!`);
+                let countElement = getElement("copy-count");
+                let currentCount = Number(countElement.innerText) + 1;
+                countElement.innerText = currentCount;
+            })
+            .catch(err => console.error("Copy failed:", err));
+    });
+}
